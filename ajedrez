@@ -1,0 +1,39 @@
+import pygame as py
+
+#Variables
+
+
+#Setup
+py.init()
+ventana_ancho = 800
+ventana_alto = 600
+ventana = py.display.set_mode((ventana_ancho, ventana_alto))
+py.display.set_caption("Ajedrez By ElPolGuai")
+
+#Cargar imagenes
+x_peon, y_peon = int(520/8), int(520/8)
+
+
+piezas = []
+for i in range(8):
+    peonb = py.transform.scale((py.image.load("peon" + str(i) + ".png").convert_alpha()), (x_peon, y_peon))
+    ventana.blit(peonb, (150 + i * 65, 510 - y_peon)) 
+
+#Maim loop
+run = True
+while run:
+    py.time.delay(10)
+    
+    for event in py.event.get():
+        if event.type == py.QUIT:
+            run = False
+
+        if event.type == py.MOUSEBUTTONDOWN:
+            pos = py.mouse.get_pos()
+            
+        
+    
+
+    py.display.update()
+
+py.quit()
